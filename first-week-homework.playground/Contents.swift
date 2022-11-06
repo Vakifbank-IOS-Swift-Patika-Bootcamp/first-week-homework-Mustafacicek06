@@ -8,14 +8,11 @@ func isPalindromeString(inputString value: String)-> Bool{
     let trimmedValue = value.removeWhitespace()
     let stringLength = trimmedValue.count
     
-    // isEven return false case
-    if (stringLength % 2 == 0) == true {
-        return false
-    }
-    else {
+   
         while  characterIndex < stringLength / 2 {
-            let firstIndex = trimmedValue.index(value.startIndex, offsetBy: characterIndex)
-            let endIndex = trimmedValue.index(value.endIndex, offsetBy: -characterIndex-1)
+          
+            let firstIndex = trimmedValue.index(trimmedValue.startIndex, offsetBy: characterIndex)
+            let endIndex = trimmedValue.index(trimmedValue.endIndex, offsetBy: -characterIndex-1)
             
             if trimmedValue[firstIndex] == trimmedValue[endIndex] {
                 characterIndex += 1
@@ -26,13 +23,13 @@ func isPalindromeString(inputString value: String)-> Bool{
         }
         
        
-    }
+    
     return true
 }
 
 
 
-
+// String extension for my case
 extension String {
    func replace(string:String, replacement:String) -> String {
        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
@@ -44,7 +41,7 @@ extension String {
  }
 
 // taco cat taco cat
-isPalindromeString(inputString: "12321")
+isPalindromeString(inputString: "taco cat taco cat")
 
 
 // MARK: Question 2
